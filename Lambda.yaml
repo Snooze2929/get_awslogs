@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Lambda function using an existing IAM role
+
+Resources:
+  MyLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: my-lambda-function
+      Handler: index.handler
+      Role: !ImportValue LambdaExecutionRoleArn
+      Runtime: python3.9
+      Timeout: 10
+      Code:
+        S3Bucket: your-s3-bucket-name
+        S3Key: path/to/your-lambda-code.zip
+
+
+Outputs:
+  LambdaFunctionName:
+    Value: !Ref MyLambdaFunction
