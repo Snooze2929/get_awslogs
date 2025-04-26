@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Lambda function using an existing IAM role
+Description: Lambda function using an existing IAM role and importing log group name
 
 Resources:
   MyLambdaFunction:
@@ -13,8 +13,11 @@ Resources:
       Code:
         S3Bucket: snooze-cf-bucket
         S3Key: projects/get-awslogs/code.zip
-
+      Environment:
+        Variables:
+          OUTPUT_LOG_GROUP: !ImportValue DestinationLogGroup  # 他スタックでエクスポートされたロググループ名
 
 Outputs:
   LambdaFunctionName:
     Value: !Ref MyLambdaFunction
+

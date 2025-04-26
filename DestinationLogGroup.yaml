@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Creates a CloudWatch Logs log group and exports its name
+
+Resources:
+  DestinationLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: destination-log-group
+      RetentionInDays: 7
+
+Outputs:
+  DestinationLogGroupName:
+    Description: The name of the destination log group
+    Value: destination-log-group
+    Export:
+      Name: DestinationLogGroup

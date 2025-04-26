@@ -1,0 +1,7 @@
+Resources:
+  LogSubscription:
+    Type: AWS::Logs::SubscriptionFilter
+    Properties:
+      LogGroupName: !ImportValue SenderLogGroupName  # LogGroup名をExportしている場合はこちら
+      FilterPattern: ""
+      DestinationArn: !ImportValue MyLambdaFunctionArn

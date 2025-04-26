@@ -1,0 +1,18 @@
+Resources:
+  MyLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/source-log-group
+      RetentionInDays: 7
+
+Outputs:
+  MyLogGroupArn:
+    Value: !GetAtt MyLogGroup.Arn
+    Export:
+      Name: SenderLogGroupArn
+  
+  MyLogGroupName:
+    Description: LogGroupの名前
+    Value: /aws/lambda/source-log-group
+    Export:
+      Name: SenderLogGroupName
