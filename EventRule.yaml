@@ -15,5 +15,5 @@ Resources:
             - CreateRole
             - DeleteRole
       Targets:
-        - Arn: !GetAtt YourTargetLambda.Arn  # ここで例えばLambdaをターゲットにする
-          Id: "TargetFunctionV1"
+        - Arn: !GetAtt MyLambdaFunction.Arn
+          Id: "TargetFunc1"
