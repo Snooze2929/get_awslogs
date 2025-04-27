@@ -12,7 +12,7 @@ Resources:
       Timeout: 10
       Code:
         S3Bucket: snooze-cf-bucket
-        S3Key: projects/get-awslogs/LambdaCode/lambdaCode.zip
+        S3Key: projects/get-awslogs/LambdaCode/LambdaCode.zip
       Environment:
         Variables:
           OUTPUT_LOG_GROUP: !ImportValue DestinationLogGroup  # 他スタックでエクスポートされたロググループ名
