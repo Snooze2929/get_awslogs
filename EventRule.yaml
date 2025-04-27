@@ -1,0 +1,19 @@
+Resources:
+  IamRoleEventRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: iam-role-create-delete-rule
+      EventPattern:
+        source:
+          - aws.iam
+        detail-type:
+          - AWS API Call via CloudTrail
+        detail:
+          eventSource:
+            - iam.amazonaws.com
+          eventName:
+            - CreateRole
+            - DeleteRole
+      Targets:
+        - Arn: !GetAtt YourTargetLambda.Arn  # ここで例えばLambdaをターゲットにする
+          Id: "TargetFunctionV1"

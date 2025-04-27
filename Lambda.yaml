@@ -21,3 +21,7 @@ Outputs:
   LambdaFunctionName:
     Value: !Ref MyLambdaFunction
 
+  LambdaFunctionArn:
+    Description: "The ARN of the Lambda function"
+    Value: !GetAtt MyLambdaFunction.Arn
+
