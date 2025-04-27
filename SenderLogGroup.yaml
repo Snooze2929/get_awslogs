@@ -2,7 +2,7 @@ Resources:
   MyLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: /aws/lambda/source-log-group
+      LogGroupName: sender-log-group
       RetentionInDays: 7
 
 Outputs:
@@ -13,6 +13,6 @@ Outputs:
   
   MyLogGroupName:
     Description: LogGroupの名前
-    Value: /aws/lambda/source-log-group
+    Value: source-log-group
     Export:
       Name: SenderLogGroupName
