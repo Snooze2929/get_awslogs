@@ -15,5 +15,5 @@ Resources:
             - CreateRole
             - DeleteRole
       Targets:
-        - Arn: !GetAtt MyLambdaFunction.Arn
+        - Arn: !ImportValue MyLambdaFunctionArn
           Id: "TargetFunc1"

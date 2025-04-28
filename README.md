@@ -4,5 +4,8 @@ aws cloudformation create-stack --stack-name Sender-LogGroup --template-url http
 
 aws cloudformation create-stack --stack-name Lambda-Role --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/LambdaRole.yaml --capabilities CAPABILITY_NAMED_IAM
 
-aws cloudformation create-stack --stack-name Lambda-Function --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/Lambda.yaml
+aws cloudformation update-stack --stack-name Lambda-Function --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/Lambda.yaml
+
+aws cloudformation update-stack --stack-name Subscription-Filter --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/SubscriptionFilter.yaml
+
 

@@ -3,5 +3,5 @@ Resources:
     Type: AWS::Logs::SubscriptionFilter
     Properties:
       LogGroupName: !ImportValue SenderLogGroupName
-      FilterPattern: ""
+      FilterPattern: "?Error"
       DestinationArn: !ImportValue MyLambdaFunctionArn

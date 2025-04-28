@@ -17,11 +17,21 @@ Resources:
         Variables:
           OUTPUT_LOG_GROUP: !ImportValue DestinationLogGroup  # 他スタックでエクスポートされたロググループ名
 
+  MyLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !GetAtt MyLambdaFunction.Arn
+      Principal: logs.ap-northeast-1.amazonaws.com
+      SourceArn: arn:aws:logs:ap-northeast-1:190805427049:log-group:sender-log-group:*
+
 Outputs:
   LambdaFunctionName:
     Value: !Ref MyLambdaFunction
 
   LambdaFunctionArn:
-    Description: "The ARN of the Lambda function"
+    Description: "Lambda function ARN"
     Value: !GetAtt MyLambdaFunction.Arn
+    Export:
+      Name: MyLambdaFunctionArn
 

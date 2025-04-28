@@ -12,7 +12,7 @@ Outputs:
       Name: SenderLogGroupArn
   
   MyLogGroupName:
-    Description: LogGroupの名前
-    Value: source-log-group
+    Description: LogGroup
+    Value: !Ref MyLogGroup
     Export:
       Name: SenderLogGroupName
