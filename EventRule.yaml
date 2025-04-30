@@ -1,19 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
 Resources:
-  IamRoleEventRule:
-    Type: AWS::Events::Rule
+  EC2EventRule:
+    Type: "AWS::Events::Rule"
     Properties:
-      Name: iam-role-create-delete-rule
+      Name: "EC2StartStopInstancesRule"
       EventPattern:
-        source:
-          - aws.iam
-        detail-type:
-          - AWS API Call via CloudTrail
-        detail:
+        Source:
+          - "aws.ec2"
+        DetailType:
+          - "AWS API Call via CloudTrail"
+        Detail:
           eventSource:
-            - iam.amazonaws.com
+            - "ec2.amazonaws.com"
           eventName:
-            - CreateRole
-            - DeleteRole
+            - "StartInstances"
+            - "StopInstances"
+      State: "ENABLED"
       Targets:
         - Arn: !ImportValue MyLambdaFunctionArn
           Id: "TargetFunc1"
+          Input: "{}"
