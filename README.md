@@ -1,11 +1,12 @@
-aws cloudformation create-stack --stack-name Destination-LogGroup --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/DestinationLogGroup.yaml
+## デプロイ手順
+ロググループ類(DestinatinlogGroup・SenderLogGroup)
+↓
+Lambdaに紐付けるロール
+↓
+Lambda関数
+↓
+サブスクリプションフィルター・EventBridgeルール
 
-aws cloudformation create-stack --stack-name Sender-LogGroup --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/SenderLogGroup.yaml
-
-aws cloudformation create-stack --stack-name Lambda-Role --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/LambdaRole.yaml --capabilities CAPABILITY_NAMED_IAM
-
-aws cloudformation update-stack --stack-name Lambda-Function --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/Lambda.yaml
-
-aws cloudformation update-stack --stack-name Subscription-Filter --template-url https://snooze-cf-bucket.s3.ap-northeast-1.amazonaws.com/projects/get-awslogs/SubscriptionFilter.yaml
-
+#### S3にテンプレートを配置する場合
+aws cloudformation create-stack --stack-name 任意のスタック名 --template-url オブジェクトのURL --capabilities CAPABILITY_NAMED_IAM(IAMのRoleを作成する場合に必要)
 

@@ -5,6 +5,12 @@ Resources:
       LogGroupName: sender-log-group
       RetentionInDays: 7
 
+  MyLogStream:
+    Type: AWS::Logs::LogStream
+    Properties:
+      LogGroupName: !Ref MyLogGroup
+      LogStreamName: sender-log-stream
+
 Outputs:
   MyLogGroupArn:
     Value: !GetAtt MyLogGroup.Arn

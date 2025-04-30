@@ -17,6 +17,7 @@ Resources:
         Variables:
           OUTPUT_LOG_GROUP: !ImportValue DestinationLogGroup  # 他スタックでエクスポートされたロググループ名
 
+  # CloudWatchサービスがLambda関数に対しての実行権限を付与する設定
   MyLambdaPermission:
     Type: AWS::Lambda::Permission
     Properties:
