@@ -3,6 +3,8 @@
 # form ファイル名 import 関数名
 from log_processing import process_event
 from cloudwatch import create_log_stream, send_logs_to_cloudwatch
+import time
+import json
 
 # メイン処理関数
 def handler(event, context):
