@@ -4,7 +4,7 @@ import json
 import base64
 import io
 
-# サブスクリプションフィルターだった場合、複合かする
+# サブスクリプションフィルターだった場合、複合化する
 def decompress_data(log_data):
     compressed_payload = base64.b64decode(log_data)
     with gzip.GzipFile(fileobj=io.BytesIO(compressed_payload), mode='rb') as f:

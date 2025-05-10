@@ -9,6 +9,8 @@ import json
 # メイン処理関数
 def handler(event, context):
 
+    print(event)
+
     # 送信先ロググループ定義
     log_group_name = 'destination-log-group'
 
