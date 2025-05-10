@@ -17,14 +17,15 @@ Resources:
         Variables:
           OUTPUT_LOG_GROUP: !ImportValue DestinationLogGroup  # 他スタックでエクスポートされたロググループ名
 
-  # CloudWatchサービスがLambda関数に対しての実行権限を付与する設定
-  MyLambdaPermission:
+  # CloudWatchサービスがLambda関数に対しての実行権限を付与するリソースベースのポリシー
+  LogsLambdaPermission:
     Type: AWS::Lambda::Permission
     Properties:
       Action: lambda:InvokeFunction
       FunctionName: !GetAtt MyLambdaFunction.Arn
       Principal: logs.ap-northeast-1.amazonaws.com
       SourceArn: arn:aws:logs:ap-northeast-1:190805427049:log-group:sender-log-group:*
+
 
 Outputs:
   LambdaFunctionName:
